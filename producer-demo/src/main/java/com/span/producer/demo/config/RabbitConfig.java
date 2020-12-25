@@ -2,6 +2,7 @@ package com.span.producer.demo.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.Nullable;
 
 import javax.annotation.PostConstruct;
+import java.util.HashMap;
 
 /**
  * @author Span
@@ -48,4 +50,14 @@ public class RabbitConfig {
     }
 
 
+    /**
+     * 创建死信队列
+     * 编码的形式来创建死信队列要在生产方
+     */
+    @Bean
+    public Queue queue() {
+        HashMap<String, Object> argumentes = new HashMap<>();
+        //argumentes.put("x-d ue2", true, false, false, );
+        return new Queue("111");
+    }
 }
